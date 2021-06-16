@@ -242,7 +242,7 @@ Citizen.CreateThread(
 		if vRaw and Config.versionCheck then
 			local v = json.decode(vRaw)
 			PerformHttpRequest(
-				'https://raw.githubusercontent.com/JokeDevil/JD_logs/master/version.json',
+				'https://raw.githubusercontent.com/D4m666/FiveMLogs/main/version.json',
 				function(code, res, headers)
 					if code == 200 then
 						local rv = json.decode(res)

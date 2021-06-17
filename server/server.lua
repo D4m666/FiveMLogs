@@ -43,9 +43,9 @@ end)
 -- Sending message to the All Logs channel and to the channel it has listed
 function discordLog(message, color, channel)
   if Config.AllLogs then
-	PerformHttpRequest(Config.webhooks["all"], function(err, text, headers) end, 'POST', json.encode({username = Config.username, embeds = {{["color"] = color, ["author"] = {["name"] = Config.communtiyName,["icon_url"] = Config.communtiyLogo}, ["description"] = "".. message .."",["footer"] = {["text"] = "© JokeDevil.com - "..os.date("%x %X %p"),["icon_url"] = "https://www.jokedevil.com/img/logo.png",},}}, avatar_url = Config.avatar}), { ['Content-Type'] = 'application/json' })
+	PerformHttpRequest(Config.webhooks["all"], function(err, text, headers) end, 'POST', json.encode({username = Config.username, embeds = {{["color"] = color, ["author"] = {["name"] = Config.communtiyName,["icon_url"] = Config.communtiyLogo}, ["description"] = "".. message .."",["footer"] = {["text"] = "© PwerLife RP - "..os.date("%x %X %p"),["icon_url"] = "https://cdn.discordapp.com/attachments/835192154484768768/850067812630265926/Logo.png",},}}, avatar_url = Config.avatar}), { ['Content-Type'] = 'application/json' })
   end
-	PerformHttpRequest(Config.webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = Config.username, embeds = {{["color"] = color, ["author"] = {["name"] = Config.communtiyName,["icon_url"] = Config.communtiyLogo}, ["description"] = "".. message .."",["footer"] = {["text"] = "© JokeDevil.com - "..os.date("%x %X %p"),["icon_url"] = "https://www.jokedevil.com/img/logo.png",},}}, avatar_url = Config.avatar}), { ['Content-Type'] = 'application/json' })
+	PerformHttpRequest(Config.webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = Config.username, embeds = {{["color"] = color, ["author"] = {["name"] = Config.communtiyName,["icon_url"] = Config.communtiyLogo}, ["description"] = "".. message .."",["footer"] = {["text"] = "© PwerLife RP - "..os.date("%x %X %p"),["icon_url"] = "https://cdn.discordapp.com/attachments/835192154484768768/850067812630265926/Logo.png",},}}, avatar_url = Config.avatar}), { ['Content-Type'] = 'application/json' })
 end
 
 -- Event Handlers
@@ -168,8 +168,8 @@ AddEventHandler('onResourceStart', function (resourceName)
     discordLog('**' .. resourceName .. '** has been started.', Config.resourceColor, 'resources')
 end)
 
-RegisterServerEvent('JDlogs:GetIdentifiers')
-AddEventHandler('JDlogs:GetIdentifiers', function(src)
+RegisterServerEvent('logs:GetIdentifiers')
+AddEventHandler('logs:GetIdentifiers', function(src)
 	local ids = ExtractIdentifiers(src)
 	return ids
 end)
